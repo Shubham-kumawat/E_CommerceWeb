@@ -43,7 +43,7 @@ function Popup({ product, onClose }) {
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full ${
+                className={`w-2 h-2 rounded-full ${
                   currentIndex === index ? "bg-black" : "bg-gray-400"
                 }`}
               ></button>
@@ -53,12 +53,20 @@ function Popup({ product, onClose }) {
 
         {/* Right Side: Product Info */}
         <div className="w-1/2 h-full flex flex-col items-center justify-center space-y-4">
+        <div className="details mb-10">
           <h2 className="text-2xl font-semibold">{product.name}</h2>
-          <p className="text-xl font-medium">{product.price}</p>
-
-          <button className="bg-black text-white px-6 py-2 rounded hover:bg-gray-800">
-            Confirm Add to Cart
+           <p className="text-xl font-medium">{product.price}</p>
+          </div>
+         
+      <div className="color-details flex flex-col items-start gap-2">
+  <span>Color: blue*</span>
+  <div className="w-5 h-5 rounded-full bg-blue-500 border-2 border-black"></div>
+</div>
+          <div className="btn">
+            <button className="bg-black text-white px-6 py-2 rounded hover:bg-gray-800">
+             Add to Cart
           </button>
+          </div>
         </div>
       </div>
     </div>
