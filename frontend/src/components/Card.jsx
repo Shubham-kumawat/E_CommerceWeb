@@ -3,18 +3,18 @@ import React, { useState } from "react";
 
 function Card() {
     const data = [
-        { image: '/product_img/product1a.jpg', image2: '/product_img/product1b.jpg', name: "I'm a product", price: '$15.00' },
-        { image: '/product_img/p2a.avif', image2: '/product_img/p2b.avif', name: "I'm a product", price: '$25.00' },
-        { image: '/product_img/p3a.avif', image2: '/product_img/p3b.avif', name: "I'm a product", price: '$35.00' },
-        { image: '/product_img/p41.avif', image2: '/product_img/p42.avif', name: "I'm a product", price: '$35.00' },
-        { image: '/product_img/p51.avif', image2: '/product_img/p52.avif', name: "I'm a product", price: '$35.00' },
-        { image: '/product_img/p61.avif', image2: '/product_img/p62.avif', name: "I'm a product", price: '$35.00' },
-        { image: '/product_img/p71.avif', image2: '/product_img/p72.avif', name: "I'm a product", price: '$35.00' },
-        { image: '/product_img/p81.avif', image2: '/product_img/p82.avif', name: "I'm a product", price: '$35.00' },
-        { image: '/product_img/p91.avif', image2: '/product_img/p92.avif', name: "I'm a product", price: '$35.00' },
-        { image: '/product_img/p101.avif', image2: '/product_img/p102.avif', name: "I'm a product", price: '$35.00' },
-        { image: '/product_img/p111.avif', image2: '/product_img/p112.avif', name: "I'm a product", price: '$35.00' },
-        { image: '/product_img/p113.avif', image2: '/product_img/p1132.avif', name: "I'm a product", price: '$35.00' },
+        {id:1,image: '/product_img/product1a.jpg', image2: '/product_img/product1b.jpg', name: "I'm a product", price: 15.00 },
+        {id:2, image: '/product_img/p2a.avif', image2: '/product_img/p2b.avif', name: "I'm a product", price: 25.00 },
+        {id:3, image: '/product_img/p3a.avif', image2: '/product_img/p3b.avif', name: "I'm a product", price: 35.00 },
+        {id:4, image: '/product_img/p41.avif', image2: '/product_img/p42.avif', name: "I'm a product", price: 35.00 },
+        {id:5, image: '/product_img/p51.avif', image2: '/product_img/p52.avif', name: "I'm a product", price: 35.00 },
+        {id:6, image: '/product_img/p61.avif', image2: '/product_img/p62.avif', name: "I'm a product", price: 35.00 },
+        {id:7, image: '/product_img/p71.avif', image2: '/product_img/p72.avif', name: "I'm a product", price: 35.00 },
+        {id:8, image: '/product_img/p81.avif', image2: '/product_img/p82.avif', name: "I'm a product", price: 35.00 },
+        {id:9, image: '/product_img/p91.avif', image2: '/product_img/p92.avif', name: "I'm a product", price: 35.00},
+        {id:10, image: '/product_img/p101.avif', image2: '/product_img/p102.avif', name: "I'm a product", price: 35.00 },
+        {id:11, image: '/product_img/p111.avif', image2: '/product_img/p112.avif', name: "I'm a product", price: 35.00 },
+        {id:12, image: '/product_img/p113.avif', image2: '/product_img/p1132.avif', name: "I'm a product", price: 35.00 },
     ];
  const [showPopup, setShowPopup] = useState(false);
 const [selectedProduct, setSelectedProduct] = useState(null);
@@ -48,7 +48,7 @@ return (
             <div className="w-full h-20 px-3 py-4 text-center">
               <div className="cursor-pointer">
                 <h2 className="font-semibold">{elem.name}</h2>
-                <p className="font-semibold mt-3">{elem.price}</p>
+                <p className="font-semibold mt-3">${elem.price}</p>
               </div>
             </div>
 

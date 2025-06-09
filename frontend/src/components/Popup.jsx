@@ -1,9 +1,8 @@
 // Popup.jsx
 import React, { useState } from "react";
+import { useCart } from "../context/CartContext"; // ★ new import
 
-/* ────────────────────────────────────────────────────────────────────────── */
-/* Re-usable quantity selector                                               */
-/* ────────────────────────────────────────────────────────────────────────── */
+
 function QuantitySelector({ initialQty = 1, onChange }) {
   const [qty, setQty] = useState(initialQty);
 
@@ -35,11 +34,11 @@ function QuantitySelector({ initialQty = 1, onChange }) {
   );
 }
 
-/* ────────────────────────────────────────────────────────────────────────── */
-/* Main popup                                                                */
-/* ────────────────────────────────────────────────────────────────────────── */
+
 export default function Popup({ product, onClose }) {
+    const { addToCart } = useCart(); // ★ use addToCart
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [qty, setQty] = useState(1); // ★ track local qty
   const images = [product.image, product.image2];
 
   /* 👉 handle qty changes here (API, context, etc.) */
@@ -53,6 +52,11 @@ export default function Popup({ product, onClose }) {
     } catch (err) {
       console.error("Failed to sync quantity", err);
     }
+  };
+
+   const handleAdd = () => {
+    addToCart({ id: product.id, name: product.name, price: product.price, image: product.image }, qty);
+    onClose();
   };
 
   return (
@@ -119,10 +123,9 @@ export default function Popup({ product, onClose }) {
           <div className="flex flex-col  gap-2">
             <span>Quantity</span>
             <div className="border h-10 flex items center ">
-  <QuantitySelector
-    initialQty={1}
-    onChange={handleQuantityChange}
-  />
+  
+      <QuantitySelector initialQty={1} onChange={setQty} />
+ 
 </div>
 
 </div>
@@ -130,7 +133,7 @@ export default function Popup({ product, onClose }) {
          <div className="button w-full mt-10 text-center ">
            {/* Add-to-cart */}
           <button
-            onClick={() => console.log("Add to cart")}
+          onClick={handleAdd} 
             className="bg-black w-[100%] text-white font-semibold rounded-md  py-2 hover:underline"
           >
             Add to Cart
