@@ -43,7 +43,7 @@ function CartDrawer({ isOpen, onClose }) {
                     className="px-2 py-1 border rounded hover:bg-gray-200"
                   >+</button>
                 </div>
-                <p className="text-sm font-semibold">₹{item.price * item.qty}</p>
+                <p className="text-sm font-semibold">${item.price * item.qty}</p>
               </div>
               <button 
                 onClick={() => removeFromCart(item.id)} 
